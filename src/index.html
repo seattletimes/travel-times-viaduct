@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en-US">
+  <head>
+    <%= t.include("partials/_head.html", grunt.data.json) %>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+
+    <responsive-child class="constrained">
+      <section class="chatter">
+        <h1>Average travel times during the 2016 viaduct closure</h1>
+        <p>The state closed the Alaskan Way Viaduct for nine days in 2016 as a precaution when the tunnel-boring machine Bertha was digging the new Highway 99 tunnel directly under the elevated highway. The closure caused traffic delays throughout the area, giving travelers an idea what may be in store when the viaduct closes for good Jan. 11 and the new tunnel doesn’t open for another three weeks. The red line shows average weekday travel times over five days during the closure. The gray line shows average weekday travel times in the four weeks before the closure.</p>
+      </section>
+
+      <section class="tabset" aria-live="polite" aria-controls="tab-controls">
+        <div class="tabs" id="tab-controls">
+          <label>Commute times</label>
+          <a href="#Everett" class="selected">Everett</a>
+          <a href="#FW">Federal Way</a>
+          <a href="#Bellevue">Bellevue</a>
+        </div>
+        <hr>
+        <div class="tab-content show" id="Everett">
+          <div class="image-container">
+            <img src="./assets/2016Travel-times-Everett.jpg" alt="Seattle Public Schools, 52.7% students of color, 19.3% teachers of color">
+          </div>
+          <div class="source-tab">Source: Washington Department of Transportation<br>Mark Nowlin / The Seattle Times</div>
+        </div>
+
+        <div class="tab-content" id="FW">
+          <div class="image-container">
+            <img src="./assets/2016Travel-times-FW.jpg" alt="Edmonds School District, 52.1% students of color, 9.5% teachers of color">
+          </div>
+          <div class="source-tab">Source: Washington Department of Transportation<br>Mark Nowlin / The Seattle Times</div>
+        </div>
+
+          <div class="tab-content" id="Bellevue">
+          <div class="image-container">
+            <img src="./assets/2016Travel-times-Bellevue.jpg" alt="Pasco School District, 76.0% students of color, 23.9% teachers of color">
+          </div>
+          <div class="source-tab">Source: Washington Department of Transportation<br>Mark Nowlin / The Seattle Times</div>
+        </div>
+
+      </section>
+    </responsive-child>
+
+    <script src="app.js" async></script>
+    <% if (json.project.production) { %>
+    <%= !json.project.embedded ? t.include("partials/_analytics.html") : "" %>
+    <%= t.include("partials/_workHere.html") %>
+    <% } %>
+  </body>
+</html>
